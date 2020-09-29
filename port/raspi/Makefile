@@ -25,7 +25,7 @@ include ${BTSTACK_ROOT}/example/Makefile.inc
 # use (cross)compiler for Raspi
 CC = arm-linux-gnueabihf-gcc
 
-CFLAGS  += -g -Wall -Werror \
+CFLAGS  += -g -Wall -Werror -Wno-switch-unreachable \
 	-I$(BTSTACK_ROOT)/platform/embedded \
 	-I$(BTSTACK_ROOT)/platform/posix \
 	-I$(BTSTACK_ROOT)/chipset/bcm \
@@ -54,3 +54,5 @@ EXAMPLES += pan_lwip_http_server
 # LDFLAGS += -L/sw/lib -lportaudio -Wl,-framework,CoreAudio -Wl,-framework,AudioToolbox -Wl,-framework,AudioUnit -Wl,-framework,Carbon
 
 all: ${EXAMPLES}
+
+le_server: le_data_channel_server
